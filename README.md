@@ -8,7 +8,7 @@ It helps identify costly work and choose an algorithm or collection based on the
 
 ## Scope
 
-Use it for data-processing work such as searching, filtering, deduplication, grouping, aggregation, and sorting. It aims to preserve behavior and distinguish measured speedups from complexity analysis.
+Use it for data-processing work such as searching, filtering, deduplication, grouping, aggregation, and sorting. It checks candidate changes for correctness and compares performance before presenting them as verified improvements.
 
 It does not cover low-level type representation changes such as converting a `struct` to a `class`, SwiftUI rendering, app launch, or general profiling.
 
@@ -48,7 +48,7 @@ In Claude Code, invoke `/swift-algorithm-performance` and describe the code to r
 
 ## Limits
 
-Recommendations depend on the code, input sizes, and workload. Complexity analysis alone does not establish a runtime improvement. When claiming a speedup, the skill asks for an optimized-build comparison with representative inputs and equivalent conditions.
+Recommendations depend on the code, input sizes, and workload. Complexity analysis alone does not establish a runtime improvement. The skill compares the original and candidate implementations in an optimized build with representative inputs before calling an improvement verified. If it cannot measure the change, it labels the suggestion as an unverified candidate. For code-improvement requests, it provides the minimal relevant code or diff for the checked candidate.
 
 ## License
 

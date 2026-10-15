@@ -15,7 +15,8 @@ Choose improvements by checking the required output, traversal count, behavior c
 2. Find the work that grows with input size. Look for repeated scans, nested loops, repeated filtering or sorting, and temporary collections on the relevant path.
 3. Compare a small number of suitable algorithms or data structures. Explain time complexity and added memory in terms of the actual operation pattern. Check the concrete collection type and its documented complexity; do not assume every `Collection` has constant-time indexing or `count`.
 4. Preserve observable behavior, including output order, duplicate handling, tie behavior, and mutation. Prefer the smallest change that addresses the costly work.
-5. Verify correctness with relevant cases. When claiming a runtime improvement, compare the old and new implementations in an optimized build with representative inputs and the same conditions. If measurement is unavailable, describe the complexity change as analysis, not as a measured speedup.
+5. Verify a candidate before recommending it as a performance improvement. Check correctness with relevant cases, then compare the old and new implementations in an optimized build with representative inputs and the same conditions, including setup costs such as building a `Set`. Recommend it as a verified improvement only when behavior is preserved and measurements show a meaningful benefit for the target workload. If measurement is unavailable, label it as an unverified candidate and do not claim it is faster.
+6. When the user asks for a code improvement, include the minimal relevant replacement code or diff for the candidate that was checked. For analysis-only requests, report the finding and trade-offs without changing files.
 
 ## Swift-specific checks
 
@@ -26,4 +27,4 @@ Choose improvements by checking the required output, traversal count, behavior c
 
 ## Report
 
-State the bottleneck, the proposed change, the old and new complexity when it can be established, relevant memory or behavior trade-offs, and how the result was checked. Distinguish measured results from source-level analysis and unverified expectations.
+State the bottleneck, the proposed change, the old and new complexity when it can be established, relevant memory or behavior trade-offs, and how the result was checked. Clearly distinguish a verified improvement from an unverified candidate, and distinguish measured results from source-level analysis and expectations.
