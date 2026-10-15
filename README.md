@@ -8,7 +8,7 @@ It helps identify costly work and choose an algorithm or collection based on the
 
 ## Scope
 
-Use it for data-processing work such as searching, filtering, deduplication, grouping, aggregation, and sorting. It checks candidate changes for correctness and compares performance before presenting them as verified improvements.
+Use it while implementing, reviewing, or improving data-processing work such as searching, filtering, deduplication, grouping, aggregation, and sorting when input size or repeated collection operations may affect performance. It checks candidate changes for correctness and compares performance before presenting them as verified improvements.
 
 It does not cover low-level type representation changes such as converting a `struct` to a `class`, SwiftUI rendering, app launch, or general profiling.
 

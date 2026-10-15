@@ -1,11 +1,11 @@
 ---
 name: swift-algorithm-performance
-description: Reviews and improves performance-sensitive Swift data-processing code by choosing suitable algorithms and collection operations. Use for slow search, filtering, deduplication, grouping, aggregation, or sorting.
+description: Helps implement, review, and improve Swift data-processing code where input size or repeated collection operations may affect performance. Use for algorithm and collection choices in search, filtering, deduplication, grouping, aggregation, or sorting.
 ---
 
 # Swift Algorithm Performance
 
-Use this skill when the user wants to find or improve costly work in Swift data-processing code. Focus on algorithm choice, repeated work, and collection operations. Do not use it for low-level type representation changes such as converting a `struct` to a `class`, SwiftUI rendering, app launch, or general profiling tasks.
+Use this skill when implementing, reviewing, or improving Swift data-processing code where input size or repeated collection operations may affect performance. Focus on algorithm choice, repeated work, and collection operations. Do not use it for low-level type representation changes such as converting a `struct` to a `class`, SwiftUI rendering, app launch, or general profiling tasks.
 
 Choose improvements by checking the required output, traversal count, behavior constraints such as ordering and duplicates, time and memory costs, and measurements.
 

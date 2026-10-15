@@ -8,7 +8,7 @@ This repository will grow in three small milestones. The skill focuses on improv
 
 - Add one portable `SKILL.md` with standard `name` and `description` metadata, clear triggers, and scope boundaries.
 - Add concise English and Japanese READMEs covering the skill's scope, installation, invocation, limitations, and license.
-- Guide the agent to identify costly work and choose an algorithm or collection based on the required output, traversal count, behavior constraints, input size, and time and memory costs.
+- Make the skill useful during implementation, review, and optimization when input size or repeated collection operations may affect performance; guide the agent to choose based on the required output, traversal count, behavior constraints, input size, and time and memory costs.
 - Preserve behavior, verify a candidate's correctness and performance before recommending it as an improvement, and include the checked code change when implementation is requested.
 - Install and explicitly invoke the skill in both Codex and Claude Code with a representative Swift data-processing task.
 - Publish `v0.1.0-beta.1` with release notes, then publish `v0.1.0` after checking the release candidate.
