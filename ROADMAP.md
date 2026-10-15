@@ -2,15 +2,15 @@
 
 [日本語](ROADMAP.ja.md)
 
-This repository will grow in three small milestones. The skill focuses on improving Swift data-processing code through better algorithms and collection choices, while preserving behavior and checking performance claims with measurements when practical.
+This repository will grow in three small milestones. The skill focuses on improving Swift data-processing code through better algorithms and collection choices. It weighs the required output, traversal count, behavior constraints such as ordering and duplicates, time and memory costs, and measurements, while preserving behavior.
 
 ## v0.1.0 — First usable skill
 
-- Add `SKILL.md` with clear triggers, scope, and boundaries.
-- Guide the agent to identify costly work, consider input size and operation patterns, and choose a suitable algorithm or collection.
+- Add one portable `SKILL.md` with standard `name` and `description` metadata, clear triggers, and scope boundaries.
+- Guide the agent to identify costly work and choose an algorithm or collection based on the required output, traversal count, behavior constraints, input size, and time and memory costs.
 - Require behavior preservation and caution against speculative micro-optimizations.
 
-**Done when:** the skill can be installed and used for a focused Swift performance task.
+**Done when:** the same skill can be installed and explicitly invoked in both Codex and Claude Code for a focused Swift performance task.
 
 ## v0.2.0 — Examples and evaluation
 
@@ -18,12 +18,12 @@ This repository will grow in three small milestones. The skill focuses on improv
 - Include cases where an optimization is not worthwhile or changes behavior.
 - Record correctness checks, benchmark conditions, trade-offs, and results where measurements are available.
 
-**Done when:** the examples show when the skill's recommendations help and when they do not.
+**Done when:** the examples show when the skill's recommendations help and when they do not in both Codex and Claude Code.
 
 ## v1.0.0 — Stable release
 
 - Review the skill's scope, instructions, and examples for consistency.
-- Add concise installation and contribution guidance.
+- Add concise installation guidance for Codex and Claude Code, plus contribution guidance.
 - Validate the skill package and publish a release with usage and known limitations documented.
 
 **Done when:** a new user can install the skill, understand its scope, and follow its recommendations with appropriate evidence.
