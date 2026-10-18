@@ -40,6 +40,8 @@ Start a new session after installing or updating the skill.
 
 ## Use
 
+The skill can also be picked up automatically for relevant Swift data-processing work. Invoke it explicitly when you want to ensure it is applied.
+
 In Codex, ask directly:
 
 > Use the `swift-algorithm-performance` skill to review this Swift search code. Preserve its behavior and explain the complexity and memory trade-offs.

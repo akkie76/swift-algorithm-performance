@@ -11,7 +11,7 @@ This repository will grow in three small milestones. The skill focuses on improv
 - Make the skill useful during implementation, review, and optimization when input size or repeated collection operations may affect performance; guide the agent to choose based on the required output, traversal count, behavior constraints, input size, and time and memory costs.
 - Preserve behavior, verify a candidate's correctness and performance before recommending it as an improvement, and include the checked code change when implementation is requested.
 - Install and explicitly invoke the skill in both Codex and Claude Code with a representative Swift data-processing task.
-- Publish `v0.1.0-beta.1` with release notes, then publish `v0.1.0` after checking the release candidate.
+- Publish `v0.1.0-beta.1` with release notes. After checking the release candidate, update the install command in both READMEs from `v0.1.0-beta.1` to `v0.1.0`, then publish `v0.1.0`.
 
 **Done when:** the same skill can be installed and explicitly invoked in both Codex and Claude Code for a focused Swift performance task.
 

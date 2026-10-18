@@ -40,6 +40,8 @@ cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/s
 
 ## 使い方
 
+対象となるSwiftのデータ処理では、Skillが自動的に選ばれることもあります。確実に使いたい場合は、明示的に呼び出してください。
+
 Codexでは、たとえば次のように依頼します。
 
 > `swift-algorithm-performance` Skillを使って、このSwiftの探索処理を確認してください。動作を保ち、計算量とメモリのトレードオフを説明してください。
