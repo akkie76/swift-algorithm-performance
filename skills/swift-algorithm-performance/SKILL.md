@@ -15,7 +15,7 @@ Choose improvements by checking the required output, traversal count, behavior c
 2. Find the work that grows with input size. Look for repeated scans, nested loops, repeated filtering or sorting, and temporary collections on the relevant path.
 3. Compare a small number of suitable algorithms or data structures. Explain time complexity and added memory in terms of the actual operation pattern. Check the concrete collection type and its documented complexity; do not assume every `Collection` has constant-time indexing or `count`.
 4. Preserve observable behavior, including output order, duplicate handling, tie behavior, and mutation. Prefer the smallest change that addresses the costly work.
-5. Verify a candidate before recommending it as a performance improvement. Check correctness with relevant cases, then compare the old and new implementations in an optimized build with representative inputs and the same conditions, including setup costs such as building a `Set`. Recommend it as a verified improvement only when behavior is preserved and measurements show a meaningful benefit for the target workload. If measurement is unavailable, label it as an unverified candidate and do not claim it is faster.
+5. Verify a candidate before recommending it as a performance improvement. Check correctness with relevant cases, then compare the old and new implementations in an optimized build with representative inputs at the sizes relevant to the user's workload, including small and large cases when the benefit may vary. Use the same conditions and include setup costs such as building a `Set`. Report where the candidate helps and where it does not; do not make a blanket recommendation when results depend on input size. Recommend it as a verified improvement only when behavior is preserved and measurements show a meaningful benefit for the target workload. If the target input range is unknown, explain the trade-off and make the recommendation conditional. If measurement is unavailable, label it as an unverified candidate and do not claim it is faster.
 6. When the user asks for a code improvement, include the minimal relevant replacement code or diff for the candidate that was checked. For analysis-only requests, report the finding and trade-offs without changing files.
 
 ## Swift-specific checks
@@ -24,6 +24,7 @@ Choose improvements by checking the required output, traversal count, behavior c
 - Avoid repeated transformations or sorting when one pass or a reusable lookup structure can preserve the required result.
 - Account for intermediate arrays when they are on the relevant path.
 - Do not recommend a more complex data structure for small inputs or infrequent operations without a meaningful benefit.
+- If benchmark code is needed, keep it outside the user's repository, state where it was placed, and remove the temporary files you created after the check unless the user asks to keep them.
 
 ## Report
 
