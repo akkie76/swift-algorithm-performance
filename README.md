@@ -48,6 +48,10 @@ In Codex, ask directly:
 
 In Claude Code, invoke `/swift-algorithm-performance` and describe the code to review.
 
+## Examples
+
+Run correctness checks and review the search, deduplication, aggregation, and sorting examples in [`examples/README.md`](examples/README.md).
+
 ## Limits
 
 Recommendations depend on the code, input sizes, and workload. Complexity analysis alone does not establish a runtime improvement. The skill compares the original and candidate implementations in an optimized build with representative inputs before calling an improvement verified. If it cannot measure the change, it labels the suggestion as an unverified candidate. For code-improvement requests, it provides the minimal relevant code or diff for the checked candidate.
