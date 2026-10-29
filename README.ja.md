@@ -17,7 +17,7 @@ Swiftのデータ処理コードの性能改善を支援する、CodexとClaude 
 利用するリリース版をcloneします。
 
 ```sh
-git clone --depth 1 --branch v0.1.0-beta.1 https://github.com/akkie76/swift-algorithm-performance.git
+git clone --depth 1 --branch v0.2.0-beta.2 https://github.com/akkie76/swift-algorithm-performance.git
 ```
 
 利用するエージェントの場所へSkillをコピーします。
@@ -47,6 +47,10 @@ Codexでは、たとえば次のように依頼します。
 > `swift-algorithm-performance` Skillを使って、このSwiftの探索処理を確認してください。動作を保ち、計算量とメモリのトレードオフを説明してください。
 
 Claude Codeでは、`/swift-algorithm-performance` を実行して、確認したいコードを説明します。
+
+## 例
+
+[`examples/README.ja.md`](examples/README.ja.md)で、探索・重複排除・集計・ソートの例と正しさの確認方法を説明しています。
 
 ## 制約
 
