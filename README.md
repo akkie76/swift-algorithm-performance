@@ -17,7 +17,7 @@ It does not cover low-level type representation changes such as converting a `st
 Clone the release version you want to use:
 
 ```sh
-git clone --depth 1 --branch v0.1.0-beta.1 https://github.com/akkie76/swift-algorithm-performance.git
+git clone --depth 1 --branch v0.2.0-beta.2 https://github.com/akkie76/swift-algorithm-performance.git
 ```
 
 Install the skill for your agent.

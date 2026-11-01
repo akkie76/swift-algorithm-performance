@@ -17,7 +17,7 @@ Swiftのデータ処理コードの性能改善を支援する、CodexとClaude 
 利用するリリース版をcloneします。
 
 ```sh
-git clone --depth 1 --branch v0.1.0-beta.1 https://github.com/akkie76/swift-algorithm-performance.git
+git clone --depth 1 --branch v0.2.0-beta.2 https://github.com/akkie76/swift-algorithm-performance.git
 ```
 
 利用するエージェントの場所へSkillをコピーします。
