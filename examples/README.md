@@ -12,8 +12,8 @@ The examples compare a straightforward implementation with an alternative for a 
 
 | Operation | Requirement and alternative | Source-level complexity and storage | Behavior and trade-offs |
 | --- | --- | --- | --- |
-| Search | Match `values` against `selected`; build a `Set` for each call instead of scanning `selected` for every value. | Repeated array lookup: O(n × m) in the worst case. Set-backed lookup: O(m + n) expected, plus O(m) memory. | Output order and duplicates come from `values`. Set lookup requires compatible `Hashable` equality and adds setup and memory costs. |
-| Deduplication | Keep the first occurrence of each value; track seen values in a `Set`. | Repeated output scan: O(n²) in the worst case. Set-backed: O(n) expected, plus O(u) memory. | Appending while traversing preserves first-seen order. |
+| Search | Match `values` against `selected`; build a `Set` for each call instead of scanning `selected` for every value. | Repeated array lookup: O(n × m) if each lookup scans all of `selected`. Set-backed lookup: O(m + n) expected, plus O(m) memory. | Output order and duplicates come from `values`. Set lookup requires compatible `Hashable` equality and adds setup and memory costs. |
+| Deduplication | Keep the first occurrence of each value; track seen values in a `Set`. | Repeated output scan: O(n²) if all input values are unique. Set-backed: O(n) expected, plus O(u) memory. | Appending while traversing preserves first-seen order. |
 | Aggregation | Sum values by category; update a dictionary during one traversal. | Repeated filtering: O(n × k). One pass: O(n) expected, plus O(k) result storage. | Totals are preserved. Dictionary iteration order is not a presentation order. |
 | Sorting | Return only the highest-priority task; scan once instead of sorting all tasks. | Full sort: O(n log n), with a new result array. Scan: O(n), O(1) extra storage. | Both examples keep the first task on a priority tie. If the caller needs every task in sorted order, sorting is still required. |
 
