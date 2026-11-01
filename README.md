@@ -25,8 +25,8 @@ Install the skill for your agent.
 ### Codex
 
 ```sh
-mkdir -p ~/.codex/skills
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.codex/skills/
+mkdir -p "$HOME/.agents/skills"
+cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/"
 ```
 
 ### Claude Code
@@ -37,6 +37,50 @@ cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/s
 ```
 
 Start a new session after installing or updating the skill.
+
+## Update
+
+When a newer release is available, replace the tag below with the version you want, then reinstall the skill. Remove only this skill's existing directory before copying the updated one so stale files are removed.
+
+Set `RELEASE_TAG` to the desired release tag:
+
+```sh
+RELEASE_TAG=v0.2.0-beta.2
+git -C swift-algorithm-performance fetch --depth 1 origin tag "$RELEASE_TAG"
+git -C swift-algorithm-performance checkout --detach "$RELEASE_TAG"
+```
+
+Then run the commands for your agent.
+
+### Codex
+
+```sh
+rm -r "$HOME/.agents/skills/swift-algorithm-performance"
+cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/"
+```
+
+### Claude Code
+
+```sh
+rm -r ~/.claude/skills/swift-algorithm-performance
+cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/skills/
+```
+
+## Uninstall
+
+Remove only the installed skill directory for the agent you use.
+
+### Codex
+
+```sh
+rm -r "$HOME/.agents/skills/swift-algorithm-performance"
+```
+
+### Claude Code
+
+```sh
+rm -r ~/.claude/skills/swift-algorithm-performance
+```
 
 ## Use
 
@@ -55,6 +99,18 @@ Run correctness checks and review the search, deduplication, aggregation, and so
 ## Limits
 
 Recommendations depend on the code, input sizes, and workload. Complexity analysis alone does not establish a runtime improvement. The skill compares the original and candidate implementations in an optimized build with representative inputs before calling an improvement verified. If it cannot measure the change, it labels the suggestion as an unverified candidate. For code-improvement requests, it provides the minimal relevant code or diff for the checked candidate.
+
+## Contributing
+
+Keep the English and Japanese documentation aligned. Before opening a pull request, run the repository checks:
+
+```sh
+python3 .github/scripts/validate_skill.py
+swift examples/Examples.swift
+git diff --check
+```
+
+Include a short summary and the validation results in your pull request.
 
 ## License
 
