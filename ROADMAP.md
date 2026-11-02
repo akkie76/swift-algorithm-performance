@@ -27,8 +27,9 @@ This repository has two pre-release milestones before the stable `v1.0.0` releas
 
 ## v1.0.0 — Stable release
 
-- Review the skill's scope, instructions, and examples for consistency.
-- Add detailed installation and contribution guidance.
-- Validate the skill package and publish a release with usage and known limitations documented.
+- [x] Review the skill's scope, instructions, and examples for consistency.
+- [x] Add detailed installation and contribution guidance.
+- [x] Validate the skill package, run all Swift examples, and confirm documented usage and limitations.
+- [ ] Publish the `v1.0.0` release with release notes.
 
 **Done when:** a new user can install the skill, understand its scope, and follow its recommendations with appropriate evidence.
