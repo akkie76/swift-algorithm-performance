@@ -40,7 +40,7 @@ Start a new session after installing or updating the skill.
 
 ## Update
 
-When a newer release is available, replace the tag below with the version you want, then reinstall the skill. Remove only this skill's existing directory before copying the updated one so stale files are removed.
+When a newer release is available, replace the tag below with the version you want, then reinstall the skill. The Codex commands below create the new skill directory, replace any existing copy there, and remove the previous `~/.codex/skills` installation only after the new copy succeeds.
 
 Set `RELEASE_TAG` to the desired release tag:
 
@@ -55,8 +55,10 @@ Then run the commands for your agent.
 ### Codex
 
 ```sh
-rm -r "$HOME/.agents/skills/swift-algorithm-performance"
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/"
+mkdir -p "$HOME/.agents/skills" &&
+  rm -rf "$HOME/.agents/skills/swift-algorithm-performance" &&
+  cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/" &&
+  rm -rf "$HOME/.codex/skills/swift-algorithm-performance"
 ```
 
 ### Claude Code

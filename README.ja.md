@@ -40,7 +40,7 @@ cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/s
 
 ## 更新
 
-新しいリリースが公開されたら、次のタグを利用したいバージョンに置き換え、Skillを再インストールします。古いファイルが残らないよう、コピー前に対象Skillのディレクトリだけを削除します。
+新しいリリースが公開されたら、次のタグを利用したいバージョンに置き換え、Skillを再インストールします。Codexの手順では、新しい配置先を作成してSkillをコピーし、コピーに成功してから旧配置先の`~/.codex/skills`を削除します。
 
 `RELEASE_TAG`に利用するリリースタグを設定します。
 
@@ -55,8 +55,10 @@ git -C swift-algorithm-performance checkout --detach "$RELEASE_TAG"
 ### Codex
 
 ```sh
-rm -r "$HOME/.agents/skills/swift-algorithm-performance"
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/"
+mkdir -p "$HOME/.agents/skills" &&
+  rm -rf "$HOME/.agents/skills/swift-algorithm-performance" &&
+  cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/" &&
+  rm -rf "$HOME/.codex/skills/swift-algorithm-performance"
 ```
 
 ### Claude Code
