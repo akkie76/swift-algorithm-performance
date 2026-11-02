@@ -21,7 +21,7 @@ This repository has two pre-release milestones before the stable `v1.0.0` releas
 - [x] Include cases where an optimization is not worthwhile or changes behavior.
 - [x] Record correctness checks, benchmark conditions, trade-offs, and results where measurements are available.
 - [x] Validate the skill with representative tasks in Codex and Claude Code.
-- [ ] Publish `v0.2.0-beta.2` with release notes.
+- [x] Publish `v0.2.0-beta.2` with release notes.
 
 **Done when:** the examples show when the skill's recommendations help and when they do not in both Codex and Claude Code, and `v0.2.0-beta.2` is published.
 
