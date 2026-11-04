@@ -30,6 +30,6 @@ jobs:
       - name: Check diff whitespace (pull request)
         if: github.event_name == 'pull_request'
         run: git diff --check "${{ github.event.pull_request.base.sha }}...HEAD"
-      - name: Check diff whitespace (push)
-        if: github.event_name == 'push'
+      - name: Check diff whitespace (push, excluding branch creation)
+        if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
         run: git diff --check "${{ github.event.before }}...HEAD"
