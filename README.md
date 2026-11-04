@@ -17,7 +17,7 @@ It does not cover low-level type representation changes such as converting a `st
 Clone the release version you want to use:
 
 ```sh
-git clone --depth 1 --branch v0.2.0-beta.2 https://github.com/akkie76/swift-algorithm-performance.git
+git clone --depth 1 --branch v1.0.0 https://github.com/akkie76/swift-algorithm-performance.git
 ```
 
 Install the skill for your agent.
@@ -25,8 +25,8 @@ Install the skill for your agent.
 ### Codex
 
 ```sh
-mkdir -p ~/.codex/skills
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.codex/skills/
+mkdir -p "$HOME/.agents/skills"
+cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/"
 ```
 
 ### Claude Code
@@ -38,6 +38,52 @@ cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/s
 
 Start a new session after installing or updating the skill.
 
+## Update
+
+When a newer release is available, replace the tag below with the version you want, then reinstall the skill. The Codex commands below create the new skill directory, replace any existing copy there, and remove the previous `~/.codex/skills` installation only after the new copy succeeds.
+
+Set `RELEASE_TAG` to the desired release tag:
+
+```sh
+RELEASE_TAG=v1.0.0
+git -C swift-algorithm-performance fetch --depth 1 origin tag "$RELEASE_TAG"
+git -C swift-algorithm-performance checkout --detach "$RELEASE_TAG"
+```
+
+Then run the commands for your agent.
+
+### Codex
+
+```sh
+mkdir -p "$HOME/.agents/skills" &&
+  rm -rf "$HOME/.agents/skills/swift-algorithm-performance" &&
+  cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/" &&
+  rm -rf "$HOME/.codex/skills/swift-algorithm-performance"
+```
+
+### Claude Code
+
+```sh
+rm -r ~/.claude/skills/swift-algorithm-performance
+cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/skills/
+```
+
+## Uninstall
+
+Remove only the installed skill directory for the agent you use.
+
+### Codex
+
+```sh
+rm -r "$HOME/.agents/skills/swift-algorithm-performance"
+```
+
+### Claude Code
+
+```sh
+rm -r ~/.claude/skills/swift-algorithm-performance
+```
+
 ## Use
 
 The skill can also be picked up automatically for relevant Swift data-processing work. Invoke it explicitly when you want to ensure it is applied.
@@ -48,6 +94,10 @@ In Codex, ask directly:
 
 In Claude Code, invoke `/swift-algorithm-performance` and describe the code to review.
 
+### Using it in code review
+
+In code review, use it to assess a performance-motivated suggestion against the actual typical and maximum input sizes and call context. When the code clearly bounds all relevant inputs to small sizes, source-level analysis can justify keeping the simpler implementation without a benchmark. Benchmark when the result could change the decision. If measurement shows only a negligible absolute difference, describe it as negligible rather than relying on a ratio. This applies to performance claims; a `Set` chosen for semantic clarity, such as expressing uniqueness, is a separate design decision.
+
 ## Examples
 
 Run correctness checks and review the search, deduplication, aggregation, and sorting examples in [`examples/README.md`](examples/README.md).
@@ -55,6 +105,18 @@ Run correctness checks and review the search, deduplication, aggregation, and so
 ## Limits
 
 Recommendations depend on the code, input sizes, and workload. Complexity analysis alone does not establish a runtime improvement. The skill compares the original and candidate implementations in an optimized build with representative inputs before calling an improvement verified. If it cannot measure the change, it labels the suggestion as an unverified candidate. For code-improvement requests, it provides the minimal relevant code or diff for the checked candidate.
+
+## Contributing
+
+Keep the English and Japanese documentation aligned. Before opening a pull request, run the repository checks:
+
+```sh
+python3 .github/scripts/validate_skill.py
+swift examples/Examples.swift
+git diff --check
+```
+
+Include a short summary and the validation results in your pull request.
 
 ## License
 

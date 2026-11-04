@@ -19,16 +19,17 @@ This repository has two pre-release milestones before the stable `v1.0.0` releas
 
 - [x] Add a small set of representative Swift examples, such as search, deduplication, aggregation, and sorting.
 - [x] Include cases where an optimization is not worthwhile or changes behavior.
-- [x] Record correctness checks, benchmark conditions, trade-offs, and results where measurements are available.
+- [x] Record correctness checks, benchmark conditions, and trade-offs. Measure representative workloads in the user's environment when appropriate; benchmark results are not stored in the repository.
 - [x] Validate the skill with representative tasks in Codex and Claude Code.
-- [ ] Publish `v0.2.0-beta.2` with release notes.
+- [x] Publish `v0.2.0-beta.2` with release notes.
 
 **Done when:** the examples show when the skill's recommendations help and when they do not in both Codex and Claude Code, and `v0.2.0-beta.2` is published.
 
 ## v1.0.0 — Stable release
 
-- Review the skill's scope, instructions, and examples for consistency.
-- Add detailed installation and contribution guidance.
-- Validate the skill package and publish a release with usage and known limitations documented.
+- [x] Review the skill's scope, instructions, and examples for consistency.
+- [x] Add detailed installation and contribution guidance.
+- [x] Validate the skill package, run all Swift examples, and confirm documented usage and limitations.
+- [ ] Publish the `v1.0.0` release with release notes.
 
 **Done when:** a new user can install the skill, understand its scope, and follow its recommendations with appropriate evidence.
