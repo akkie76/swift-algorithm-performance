@@ -29,7 +29,7 @@ Choose improvements by checking the required output, traversal count, behavior c
 - Repeated `Array.contains` or `first(where:)` calls may create quadratic work; consider a `Set` or `Dictionary` when its equality, hashing, ordering, and memory trade-offs fit.
 - Avoid repeated transformations or sorting when one pass or a reusable lookup structure can preserve the required result.
 - Account for intermediate arrays when they are on the relevant path.
-- For clearly small, bounded inputs, source-level analysis may be enough to keep a simpler implementation without benchmarking; state that this is not a measured result.
+- Do not recommend a more complex data structure for clearly small, bounded inputs or infrequent operations without a meaningful benefit. For clearly small, bounded inputs, source-level analysis may be enough to keep a simpler implementation without benchmarking; state that this is not a measured result.
 - In code review, evaluate changes on performance grounds when the suggestion is performance-motivated. Do not reject a `Set` chosen for a semantic reason such as expressing uniqueness.
 - Check maximum counts as well as typical counts, especially for inputs that can grow over time, such as paginated lists.
 - If benchmark code is needed, keep it outside the user's repository, state where it was placed, and remove the temporary files you created after the check unless the user asks to keep them.
