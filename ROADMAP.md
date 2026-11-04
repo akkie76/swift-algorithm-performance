@@ -19,7 +19,7 @@ This repository has two pre-release milestones before the stable `v1.0.0` releas
 
 - [x] Add a small set of representative Swift examples, such as search, deduplication, aggregation, and sorting.
 - [x] Include cases where an optimization is not worthwhile or changes behavior.
-- [x] Record correctness checks, benchmark conditions, trade-offs, and results where measurements are available.
+- [x] Record correctness checks, benchmark conditions, and trade-offs. Measure representative workloads in the user's environment when appropriate; benchmark results are not stored in the repository.
 - [x] Validate the skill with representative tasks in Codex and Claude Code.
 - [x] Publish `v0.2.0-beta.2` with release notes.
 

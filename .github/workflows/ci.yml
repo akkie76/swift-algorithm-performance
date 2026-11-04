@@ -10,11 +10,26 @@ permissions:
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "6.0"
       - name: Validate skill
         run: python .github/scripts/validate_skill.py
+      - name: Run Swift examples
+        run: swift examples/Examples.swift
+      - name: Run Swift examples in optimized mode
+        run: swift -O examples/Examples.swift
+      - name: Check diff whitespace (pull request)
+        if: github.event_name == 'pull_request'
+        run: git diff --check "${{ github.event.pull_request.base.sha }}...HEAD"
+      - name: Check diff whitespace (push, excluding branch creation)
+        if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
+        run: git diff --check "${{ github.event.before }}...HEAD"

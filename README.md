@@ -94,6 +94,10 @@ In Codex, ask directly:
 
 In Claude Code, invoke `/swift-algorithm-performance` and describe the code to review.
 
+### Using it in code review
+
+In code review, use it to assess a performance-motivated suggestion against the actual typical and maximum input sizes and call context. When the code clearly bounds all relevant inputs to small sizes, source-level analysis can justify keeping the simpler implementation without a benchmark. Benchmark when the result could change the decision. If measurement shows only a negligible absolute difference, describe it as negligible rather than relying on a ratio. This applies to performance claims; a `Set` chosen for semantic clarity, such as expressing uniqueness, is a separate design decision.
+
 ## Examples
 
 Run correctness checks and review the search, deduplication, aggregation, and sorting examples in [`examples/README.md`](examples/README.md).
