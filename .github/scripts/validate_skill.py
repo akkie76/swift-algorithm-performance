@@ -8,6 +8,8 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 SKILL_PATH = ROOT / "skills/swift-algorithm-performance/SKILL.md"
+README_PATHS = (ROOT / "README.md", ROOT / "README.ja.md")
+MAX_DESCRIPTION_LENGTH = 1024
 
 
 def fail(message: str) -> None:
@@ -36,8 +38,24 @@ def main() -> None:
 
     if fields.get("name") != SKILL_PATH.parent.name:
         fail("frontmatter name must match the skill directory name")
-    if not fields.get("description", "").strip():
+    description = fields.get("description", "").strip()
+    if not description:
         fail("frontmatter must include a non-empty description")
+    if len(description) > MAX_DESCRIPTION_LENGTH:
+        fail(f"frontmatter description must be {MAX_DESCRIPTION_LENGTH} characters or fewer")
+
+    heading_levels = []
+    for path in README_PATHS:
+        if not path.is_file():
+            fail(f"missing {path.relative_to(ROOT)}")
+        readme = path.read_text(encoding="utf-8")
+        heading_levels.append([
+            len(match.group(1))
+            for line in readme.splitlines()
+            if (match := re.match(r"^(#{1,6})\s+\S", line))
+        ])
+    if heading_levels[0] != heading_levels[1]:
+        fail("English and Japanese README heading structures must match")
 
     for heading in ("Workflow", "Report"):
         if not re.search(rf"^## {re.escape(heading)}\s*$", text, re.MULTILINE):

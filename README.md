@@ -88,6 +88,8 @@ rm -r ~/.claude/skills/swift-algorithm-performance
 
 The skill can also be picked up automatically for relevant Swift data-processing work. Invoke it explicitly when you want to ensure it is applied.
 
+In code review, use it to assess a performance-motivated suggestion against the actual typical and maximum input sizes and call context. When the code clearly bounds all relevant inputs to small sizes, source-level analysis can justify keeping the simpler implementation without a benchmark. Benchmark when the result could change the decision. If measurement shows only a negligible absolute difference, describe it as negligible rather than relying on a ratio. This applies to performance claims; a `Set` chosen for semantic clarity, such as expressing uniqueness, is a separate design decision.
+
 In Codex, ask directly:
 
 > Use the `swift-algorithm-performance` skill to review this Swift search code. Preserve its behavior and explain the complexity and memory trade-offs.

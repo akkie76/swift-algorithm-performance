@@ -23,8 +23,8 @@ func matchingWithSet(_ values: [Int], selected: [Int]) -> [Int] {
 
 let values = [5, 2, 5, 8, 3]
 let selected = [5, 3, 5]
-assert(matchingNaive(values, selected: selected) == [5, 5, 3])
-assert(matchingWithSet(values, selected: selected) == [5, 5, 3])
+precondition(matchingNaive(values, selected: selected) == [5, 5, 3])
+precondition(matchingWithSet(values, selected: selected) == [5, 5, 3])
 
 // Deduplication: preserve the first occurrence of each value.
 func uniqueNaive(_ values: [Int]) -> [Int] {
@@ -45,8 +45,13 @@ func uniqueWithSet(_ values: [Int]) -> [Int] {
 }
 
 let duplicateValues = [4, 2, 4, 1, 2]
-assert(uniqueNaive(duplicateValues) == [4, 2, 1])
-assert(uniqueWithSet(duplicateValues) == [4, 2, 1])
+precondition(uniqueNaive(duplicateValues) == [4, 2, 1])
+precondition(uniqueWithSet(duplicateValues) == [4, 2, 1])
+
+// Counterexample: sorting the Set changes first-occurrence order.
+let sortedSetUnique = Array(Set(duplicateValues)).sorted()
+precondition(sortedSetUnique == [1, 2, 4])
+precondition(sortedSetUnique != uniqueWithSet(duplicateValues))
 
 // Aggregation: compute a total for every category in one pass.
 func totalsNaive(_ sales: [Sale]) -> [String: Int] {
@@ -71,8 +76,8 @@ let sales = [
     Sale(category: "games", amount: 30),
     Sale(category: "books", amount: 8),
 ]
-assert(totalsNaive(sales) == ["books": 20, "games": 30])
-assert(totalsInOnePass(sales) == ["books": 20, "games": 30])
+precondition(totalsNaive(sales) == ["books": 20, "games": 30])
+precondition(totalsInOnePass(sales) == ["books": 20, "games": 30])
 
 // Sorting: if only the highest-priority task is needed, scan once instead of
 // sorting the entire input. Keep the first task when priorities tie.
@@ -100,9 +105,9 @@ let tasks = [
     Task(name: "highest", priority: 5),
     Task(name: "also-highest", priority: 5),
 ]
-assert(bestTaskBySorting(tasks)?.name == "highest")
-assert(bestTaskByScanning(tasks)?.name == "highest")
-assert(bestTaskBySorting([]) == nil)
-assert(bestTaskByScanning([]) == nil)
+precondition(bestTaskBySorting(tasks)?.name == "highest")
+precondition(bestTaskByScanning(tasks)?.name == "highest")
+precondition(bestTaskBySorting([]) == nil)
+precondition(bestTaskByScanning([]) == nil)
 
 print("All algorithm examples passed.")
