@@ -17,7 +17,7 @@ Swiftのデータ処理コードの性能改善を支援する、CodexとClaude 
 利用するリリース版をcloneします。
 
 ```sh
-git clone --depth 1 --branch v1.1.0 https://github.com/akkie76/swift-algorithm-performance.git
+git clone --depth 1 --branch v1.1.1 https://github.com/akkie76/swift-algorithm-performance.git
 ```
 
 利用するエージェントの場所へSkillをコピーします。
@@ -45,7 +45,7 @@ cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/s
 `RELEASE_TAG`に利用するリリースタグを設定します。
 
 ```sh
-RELEASE_TAG=v1.1.0
+RELEASE_TAG=v1.1.1
 git -C swift-algorithm-performance fetch --depth 1 origin tag "$RELEASE_TAG"
 git -C swift-algorithm-performance checkout --detach "$RELEASE_TAG"
 ```
