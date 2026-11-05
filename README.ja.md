@@ -17,7 +17,7 @@ Swiftのデータ処理コードの性能改善を支援する、CodexとClaude 
 利用するリリース版をcloneします。
 
 ```sh
-git clone --depth 1 --branch v1.1.1 https://github.com/akkie76/swift-algorithm-performance.git
+git clone --depth 1 --branch v1.1.1 https://github.com/akkie76/swift-algorithm-performance-skill.git
 ```
 
 利用するエージェントの場所へSkillをコピーします。
@@ -26,19 +26,25 @@ git clone --depth 1 --branch v1.1.1 https://github.com/akkie76/swift-algorithm-p
 
 ```sh
 mkdir -p "$HOME/.agents/skills"
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/"
+cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance "$HOME/.agents/skills/"
 ```
 
 ### Claude Code
 
 ```sh
 mkdir -p ~/.claude/skills
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/skills/
+cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance ~/.claude/skills/
 ```
 
 インストールまたは更新後、新しいセッションを開始してください。
 
 ## 更新
+
+以下のコマンドは、clone先のディレクトリ名が`swift-algorithm-performance-skill`であることを前提としています。既存cloneのディレクトリ名が異なる場合は、コマンド中のclone先を実際の名前に読み替えてください。リポジトリの改名前にcloneした場合は、リモートURLも更新します。
+
+```sh
+git -C swift-algorithm-performance-skill remote set-url origin https://github.com/akkie76/swift-algorithm-performance-skill.git
+```
 
 新しいリリースが公開されたら、次のタグを利用したいバージョンに置き換え、Skillを再インストールします。Codexの手順では、新しい配置先を作成してSkillをコピーし、コピーに成功してから旧配置先の`~/.codex/skills`を削除します。
 
@@ -46,8 +52,8 @@ cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/s
 
 ```sh
 RELEASE_TAG=v1.1.1
-git -C swift-algorithm-performance fetch --depth 1 origin tag "$RELEASE_TAG"
-git -C swift-algorithm-performance checkout --detach "$RELEASE_TAG"
+git -C swift-algorithm-performance-skill fetch --depth 1 origin tag "$RELEASE_TAG"
+git -C swift-algorithm-performance-skill checkout --detach "$RELEASE_TAG"
 ```
 
 続けて、利用するエージェントのコマンドを実行します。
@@ -57,7 +63,7 @@ git -C swift-algorithm-performance checkout --detach "$RELEASE_TAG"
 ```sh
 mkdir -p "$HOME/.agents/skills" &&
   rm -rf "$HOME/.agents/skills/swift-algorithm-performance" &&
-  cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/" &&
+  cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance "$HOME/.agents/skills/" &&
   rm -rf "$HOME/.codex/skills/swift-algorithm-performance"
 ```
 
@@ -65,7 +71,7 @@ mkdir -p "$HOME/.agents/skills" &&
 
 ```sh
 rm -r ~/.claude/skills/swift-algorithm-performance
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/skills/
+cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance ~/.claude/skills/
 ```
 
 ## アンインストール
