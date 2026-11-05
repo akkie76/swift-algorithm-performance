@@ -17,7 +17,7 @@ It does not cover low-level type representation changes such as converting a `st
 Clone the release version you want to use:
 
 ```sh
-git clone --depth 1 --branch v1.1.1 https://github.com/akkie76/swift-algorithm-performance.git
+git clone --depth 1 --branch v1.1.1 https://github.com/akkie76/swift-algorithm-performance-skill.git
 ```
 
 Install the skill for your agent.
@@ -26,14 +26,14 @@ Install the skill for your agent.
 
 ```sh
 mkdir -p "$HOME/.agents/skills"
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/"
+cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance "$HOME/.agents/skills/"
 ```
 
 ### Claude Code
 
 ```sh
 mkdir -p ~/.claude/skills
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/skills/
+cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance ~/.claude/skills/
 ```
 
 Start a new session after installing or updating the skill.
@@ -46,8 +46,8 @@ Set `RELEASE_TAG` to the desired release tag:
 
 ```sh
 RELEASE_TAG=v1.1.1
-git -C swift-algorithm-performance fetch --depth 1 origin tag "$RELEASE_TAG"
-git -C swift-algorithm-performance checkout --detach "$RELEASE_TAG"
+git -C swift-algorithm-performance-skill fetch --depth 1 origin tag "$RELEASE_TAG"
+git -C swift-algorithm-performance-skill checkout --detach "$RELEASE_TAG"
 ```
 
 Then run the commands for your agent.
@@ -57,7 +57,7 @@ Then run the commands for your agent.
 ```sh
 mkdir -p "$HOME/.agents/skills" &&
   rm -rf "$HOME/.agents/skills/swift-algorithm-performance" &&
-  cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/" &&
+  cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance "$HOME/.agents/skills/" &&
   rm -rf "$HOME/.codex/skills/swift-algorithm-performance"
 ```
 
@@ -65,7 +65,7 @@ mkdir -p "$HOME/.agents/skills" &&
 
 ```sh
 rm -r ~/.claude/skills/swift-algorithm-performance
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/skills/
+cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance ~/.claude/skills/
 ```
 
 ## Uninstall
