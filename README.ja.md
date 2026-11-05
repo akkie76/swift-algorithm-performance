@@ -17,7 +17,7 @@ Swiftのデータ処理コードの性能改善を支援する、CodexとClaude 
 利用するリリース版をcloneします。
 
 ```sh
-git clone --depth 1 --branch v1.1.1 https://github.com/akkie76/swift-algorithm-performance.git
+git clone --depth 1 --branch v1.1.2 https://github.com/akkie76/swift-algorithm-performance-skill.git
 ```
 
 利用するエージェントの場所へSkillをコピーします。
@@ -26,14 +26,14 @@ git clone --depth 1 --branch v1.1.1 https://github.com/akkie76/swift-algorithm-p
 
 ```sh
 mkdir -p "$HOME/.agents/skills"
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/"
+cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance "$HOME/.agents/skills/"
 ```
 
 ### Claude Code
 
 ```sh
 mkdir -p ~/.claude/skills
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/skills/
+cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance ~/.claude/skills/
 ```
 
 インストールまたは更新後、新しいセッションを開始してください。
@@ -45,9 +45,9 @@ cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/s
 `RELEASE_TAG`に利用するリリースタグを設定します。
 
 ```sh
-RELEASE_TAG=v1.1.1
-git -C swift-algorithm-performance fetch --depth 1 origin tag "$RELEASE_TAG"
-git -C swift-algorithm-performance checkout --detach "$RELEASE_TAG"
+RELEASE_TAG=v1.1.2
+git -C swift-algorithm-performance-skill fetch --depth 1 origin tag "$RELEASE_TAG"
+git -C swift-algorithm-performance-skill checkout --detach "$RELEASE_TAG"
 ```
 
 続けて、利用するエージェントのコマンドを実行します。
@@ -57,7 +57,7 @@ git -C swift-algorithm-performance checkout --detach "$RELEASE_TAG"
 ```sh
 mkdir -p "$HOME/.agents/skills" &&
   rm -rf "$HOME/.agents/skills/swift-algorithm-performance" &&
-  cp -R swift-algorithm-performance/skills/swift-algorithm-performance "$HOME/.agents/skills/" &&
+  cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance "$HOME/.agents/skills/" &&
   rm -rf "$HOME/.codex/skills/swift-algorithm-performance"
 ```
 
@@ -65,7 +65,7 @@ mkdir -p "$HOME/.agents/skills" &&
 
 ```sh
 rm -r ~/.claude/skills/swift-algorithm-performance
-cp -R swift-algorithm-performance/skills/swift-algorithm-performance ~/.claude/skills/
+cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance ~/.claude/skills/
 ```
 
 ## アンインストール
