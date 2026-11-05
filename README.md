@@ -17,7 +17,7 @@ It does not cover low-level type representation changes such as converting a `st
 Clone the release version you want to use:
 
 ```sh
-git clone --depth 1 --branch v1.1.1 https://github.com/akkie76/swift-algorithm-performance-skill.git
+git clone --depth 1 --branch v1.1.2 https://github.com/akkie76/swift-algorithm-performance-skill.git
 ```
 
 Install the skill for your agent.
@@ -45,7 +45,7 @@ When a newer release is available, replace the tag below with the version you wa
 Set `RELEASE_TAG` to the desired release tag:
 
 ```sh
-RELEASE_TAG=v1.1.1
+RELEASE_TAG=v1.1.2
 git -C swift-algorithm-performance-skill fetch --depth 1 origin tag "$RELEASE_TAG"
 git -C swift-algorithm-performance-skill checkout --detach "$RELEASE_TAG"
 ```
