@@ -40,12 +40,6 @@ Start a new session after installing or updating the skill.
 
 ## Update
 
-The commands below assume the default clone directory, `swift-algorithm-performance-skill`. If your existing clone has a different directory name, substitute its actual directory in these commands. For a clone created before the repository was renamed, update its remote URL:
-
-```sh
-git -C swift-algorithm-performance-skill remote set-url origin https://github.com/akkie76/swift-algorithm-performance-skill.git
-```
-
 When a newer release is available, replace the tag below with the version you want, then reinstall the skill. The Codex commands below create the new skill directory, replace any existing copy there, and remove the previous `~/.codex/skills` installation only after the new copy succeeds.
 
 Set `RELEASE_TAG` to the desired release tag:

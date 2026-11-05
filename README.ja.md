@@ -40,12 +40,6 @@ cp -R swift-algorithm-performance-skill/skills/swift-algorithm-performance ~/.cl
 
 ## 更新
 
-以下のコマンドは、clone先のディレクトリ名が`swift-algorithm-performance-skill`であることを前提としています。既存cloneのディレクトリ名が異なる場合は、コマンド中のclone先を実際の名前に読み替えてください。リポジトリの改名前にcloneした場合は、リモートURLも更新します。
-
-```sh
-git -C swift-algorithm-performance-skill remote set-url origin https://github.com/akkie76/swift-algorithm-performance-skill.git
-```
-
 新しいリリースが公開されたら、次のタグを利用したいバージョンに置き換え、Skillを再インストールします。Codexの手順では、新しい配置先を作成してSkillをコピーし、コピーに成功してから旧配置先の`~/.codex/skills`を削除します。
 
 `RELEASE_TAG`に利用するリリースタグを設定します。
